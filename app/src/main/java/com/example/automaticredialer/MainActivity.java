@@ -83,29 +83,36 @@ public class MainActivity extends AppCompatActivity {
             final ActivityResultLauncher<Void> getContact = registerForActivityResult(new ActivityResultContracts.PickContact(), uri -> {
                 // Handle the returned Uri
                 if (uri != null) {
-                    Cursor cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, new String[]{
-                            ContactsContract.CommonDataKinds.Phone.NUMBER,
-                            ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME
-                    }, null, null, null);
-                    assert cursor != null;
-                    cursor.moveToFirst();
-                    int nameIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
-                    int numberIndex = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
-                    number = cursor.getString(numberIndex);
-                    System.out.println("number " + number);
-                    System.out.println("nameIndex and number Index: " + nameIndex + " " + numberIndex);
+                    Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+                    if(cursor != null && cursor.moveToFirst()) {
+                        int contactIdIndex = cursor.getColumnIndex(ContactsContract.Contacts._ID);
+                        String contactId = cursor.getString(contactIdIndex);
+                        Cursor phoneCursor = getContentResolver().query(
+                                ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                                null,
+                                ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?",
+                                new String[]{contactId},
+                                null
+                        );
 
-                    if (nameIndex != -1 && numberIndex != -1) {
-                        callButton.setClickable(true);
-                        callButton.setBackgroundColor(0xFF022d9c);
-                        name = cursor.getString(nameIndex);
-                        number = cursor.getString(numberIndex);
-                        callButton.setText("Call " + name);
-                        Snackbar.make(findViewById(R.id.select_contact), "Contact selected: " + name, Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                    } else {
-                        callButton.setClickable(false);
-                        callButton.setBackgroundColor(0xFF70a0ff);
-                        Snackbar.make(findViewById(R.id.select_contact), "No contact is selected", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                        if (phoneCursor != null && phoneCursor.moveToFirst()) {
+                            int numberIndex = phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
+                            int nameIndex = phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
+                            if (nameIndex != -1 && numberIndex != -1) {
+                                name = phoneCursor.getString(nameIndex);
+                                number = phoneCursor.getString(numberIndex);
+                                callButton.setText("Call " + name);
+                                callButton.setClickable(true);
+                                callButton.setBackgroundColor(0xFF022d9c);
+                                Snackbar.make(findViewById(R.id.select_contact), "Contact selected: " + name, Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                            } else {
+                                callButton.setClickable(false);
+                                callButton.setBackgroundColor(0xFF70a0ff);
+                                Snackbar.make(findViewById(R.id.select_contact), "No contact is selected", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                            }
+                            phoneCursor.close();
+                        }
+                        cursor.close();
                     }
                 }
             });
@@ -167,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
             stopCallingButton.setClickable(true);
             stopCallingButton.setBackgroundColor(0xFF059600);
             timer = new Timer();
-            timer.schedule(new CallTask(), 5, 50 * 1000);
+            timer.schedule(new CallTask(), 3*1000, 50 * 1000);
             Snackbar.make(findViewById(R.id.button_call), "Calling to: " + name + ", " + noOfCallsTextView.getText().toString() + " times after every 50 sec", Snackbar.LENGTH_LONG).setAction("Action", null).show();
         }
     }

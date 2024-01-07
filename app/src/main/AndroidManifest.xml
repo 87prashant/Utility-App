@@ -6,12 +6,14 @@
         android:name="android.hardware.telephony"
         android:required="false" />
 
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
-<!--    <uses-permission android:name="android.permission.READ_PHONE_STATE" android:maxSdkVersion="29" />-->
-<!--    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />-->
-    <permission android:name="CALL_PHONE"/>
-    <permission android:name="READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+
+    <permission android:name="CALL_PHONE" />
+    <permission android:name="READ_CONTACTS" />
+    <permission android:name="WRITE_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
