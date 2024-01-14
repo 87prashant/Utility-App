@@ -1,9 +1,18 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
-    <style name="Base.Theme.AutomaticRedialer" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.Util" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.AutomaticRedialer" parent="Base.Theme.AutomaticRedialer" />
+    <style name="Theme.Util" parent="Base.Theme.Util" />
+
+    <style name="Theme.Util.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Util.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Util.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

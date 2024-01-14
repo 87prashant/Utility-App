@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/app_header"
+        app:layout_anchor="@+id/constraintLayout"
+        app:layout_anchorGravity="center" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.util.automaticredialer.AutomaticRedialerActivity">
+
+        <Button
+            android:id="@+id/select_contact"
+            android:layout_width="343dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/color30_dark"
+            android:clickable="true"
+            android:text="@string/ar_select_contact"
+            android:textSize="@dimen/text_size_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.138" />
+
+        <EditText
+            android:id="@+id/no_of_calls"
+            android:layout_width="65dp"
+            android:layout_height="41dp"
+            android:layout_marginBottom="484dp"
+            android:autofillHints="No of Calls"
+            android:inputType="number"
+            android:text="@string/ar_default_no_of_calls"
+            android:textIsSelectable="true"
+            android:textSize="@dimen/text_size_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.721"
+            app:layout_constraintStart_toStartOf="@+id/button_call"
+            app:layout_constraintTop_toTopOf="@+id/no_of_calls_label"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/no_of_calls_label"
+            android:layout_width="108dp"
+            android:layout_height="42dp"
+            android:gravity="center_vertical"
+            android:labelFor="@id/no_of_calls"
+            android:text="@string/ar_number_of_calls"
+            android:textSize="@dimen/text_size_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/no_of_calls"
+            app:layout_constraintHorizontal_bias="0.211"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/select_contact"
+            app:layout_constraintVertical_bias="0.078" />
+
+        <EditText
+            android:id="@+id/call_gap"
+            android:layout_width="65dp"
+            android:layout_height="41dp"
+            android:layout_marginBottom="432dp"
+            android:autofillHints="Call Gap"
+            android:inputType="number"
+            android:text="@string/ar_default_call_gap"
+            android:textIsSelectable="true"
+            android:textSize="@dimen/text_size_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.721"
+            app:layout_constraintStart_toStartOf="@+id/button_call"
+            app:layout_constraintTop_toTopOf="@+id/call_gap_label"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/call_gap_label"
+            android:layout_width="173dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="32dp"
+            android:gravity="center_vertical"
+            android:labelFor="@id/call_gap"
+            android:text="@string/ar_call_gap_label"
+            android:textSize="@dimen/text_size_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/no_of_calls_label"
+            app:layout_constraintVertical_bias="0.015" />
+
+        <TextView
+            android:id="@+id/current_call_number"
+            android:layout_width="304dp"
+            android:layout_height="39dp"
+            android:gravity="center"
+            android:labelFor="@id/no_of_calls"
+            android:text="@string/ar_current_no_of_call"
+            android:textSize="@dimen/text_size_3"
+            app:layout_anchor="@+id/include"
+            app:layout_anchorGravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/call_gap_label"
+            app:layout_constraintVertical_bias="0.056" />
+
+        <Button
+            android:id="@+id/button_call"
+            android:layout_width="343dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="264dp"
+            android:backgroundTint="@color/color10_light"
+            android:clickable="false"
+            android:text="@string/ar_default_call_text"
+            android:textSize="@dimen/text_size_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.47"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/current_call_number"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/stop_call"
+            android:layout_width="343dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/color30_light"
+            android:text="@string/ar_stop_calling"
+            android:textSize="@dimen/text_size_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.47"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_call"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <include layout="@layout/main_menu_button" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

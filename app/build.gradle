@@ -3,12 +3,12 @@ plugins {
 }
 
 android {
-    archivesBaseName = "Automatic Redialer"
-    namespace 'com.example.automaticredialer'
+    archivesBaseName = "Utility"
+    namespace 'com.util'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.automaticredialer"
+        applicationId "com.util"
         minSdk 26
         targetSdk 34
         versionCode 1

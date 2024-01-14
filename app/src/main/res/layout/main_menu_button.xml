@@ -2,21 +2,17 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/automatic_redialer"
-        android:layout_width="374dp"
-        android:layout_height="78dp"
+        android:id="@+id/main_menu"
+        android:layout_width="385dp"
+        android:layout_height="60dp"
         android:backgroundTint="@color/color30_dark"
-        android:clickable="true"
-        android:text="@string/automatic_redialer"
+        android:text="@string/main_menu_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.148" />
-
+        app:layout_constraintVertical_bias="0.976" />
 </androidx.constraintlayout.widget.ConstraintLayout>
