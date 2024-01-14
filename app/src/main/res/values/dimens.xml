@@ -2,4 +2,8 @@
     <dimen name="text_size_1">25sp</dimen>
     <dimen name="text_size_2">20sp</dimen>
     <dimen name="text_size_3">15sp</dimen>
+
+    <dimen name="padding_1">8dp</dimen>
+
+    <dimen name="border_radius_1">5dp</dimen>
 </resources>

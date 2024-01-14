@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.util.R;
 import com.util.automaticredialer.AutomaticRedialerActivity;
-import com.util.databinding.ActivityMainBinding;
+import com.util.messagesender.MessageSenderActivity;
 
 public class MainActivity extends AppCompatActivity {
     public static int COLOR10_DARK;
@@ -34,11 +34,15 @@ public class MainActivity extends AppCompatActivity {
         // Automatic redialer activity
         Button automaticRedialerBtn = findViewById(R.id.automatic_redialer);
         automaticRedialerBtn.setOnClickListener(v -> startActivity(new Intent(baseContext, AutomaticRedialerActivity.class)));
+
+        // Message sender activity
+        Button messageSenderBtn = findViewById(R.id.message_sender);
+        messageSenderBtn.setOnClickListener(v -> startActivity(new Intent(baseContext, MessageSenderActivity.class)));
     }
 
     private void mainInit() {
         setMainColors();
-        ActivityMainBinding mainBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        com.util.databinding.ActivityMainBinding mainBinding = com.util.databinding.ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
         baseContext = getBaseContext();
     }

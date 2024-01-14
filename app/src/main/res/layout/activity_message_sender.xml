@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/app_header"
+        app:layout_anchor="@+id/constraintLayout"
+        app:layout_anchorGravity="center" />
+
+    <include layout="@layout/main_menu_button" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="center"
+        tools:context=".messagesender.MessageSenderActivity">
+
+        <Button
+            android:id="@+id/ms_select_contact"
+            android:layout_width="343dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/color30_dark"
+            android:clickable="true"
+            android:text="@string/ms_select_contact"
+            android:textSize="@dimen/text_size_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.148" />
+
+        <EditText
+            android:id="@+id/ms_no_of_message"
+            android:layout_width="65dp"
+            android:layout_height="41dp"
+            android:layout_marginEnd="84dp"
+            android:layout_marginBottom="484dp"
+            android:autofillHints="No of message"
+            android:inputType="number"
+            android:text="@string/ms_default_no_of_message"
+            android:textIsSelectable="true"
+            android:textSize="@dimen/text_size_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/ms_no_of_message_label"
+            app:layout_constraintTop_toTopOf="@+id/ms_no_of_message_label"
+            app:layout_constraintVertical_bias="0.038" />
+
+        <TextView
+            android:id="@+id/ms_no_of_message_label"
+            android:layout_width="191dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="24dp"
+            android:gravity="center_vertical"
+            android:labelFor="@id/ms_no_of_message"
+            android:text="@string/ms_number_of_message"
+            android:textSize="@dimen/text_size_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ms_select_contact"
+            app:layout_constraintVertical_bias="0.069" />
+
+        <!--        <LinearLayout-->
+<!--            android:layout_width="400dp"-->
+<!--            android:layout_height="200dp">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:text="#randomNoX#: Random X digit" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:text="#randomStringX#: Random X char string"/>-->
+<!--        </LinearLayout>-->
+
+        <EditText
+            android:id="@+id/ms_message_gap"
+            android:layout_width="65dp"
+            android:layout_height="41dp"
+            android:layout_marginBottom="432dp"
+            android:autofillHints="Call Gap"
+            android:inputType="number"
+            android:text="@string/ms_default_message_gap"
+            android:textIsSelectable="true"
+            android:textSize="@dimen/text_size_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.722"
+            app:layout_constraintStart_toStartOf="@+id/ms_button_message"
+            app:layout_constraintTop_toTopOf="@+id/ms_message_gap_label"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/ms_message_gap_label"
+            android:layout_width="192dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="24dp"
+            android:gravity="center_vertical"
+            android:labelFor="@id/ms_message_gap"
+            android:text="@string/ms_message_gap_label"
+            android:textSize="@dimen/text_size_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ms_no_of_message_label"
+            app:layout_constraintVertical_bias="0.083" />
+
+        <TextView
+            android:layout_width="343dp"
+            android:layout_height="103dp"
+            android:gravity="center_vertical"
+            android:padding="@dimen/padding_1"
+            android:text="@string/ms_info"
+            android:textColor="@color/color30_light"
+            android:textSize="@dimen/text_size_3"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toTopOf="@+id/ms_enter_message_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ms_message_gap_label" />
+
+        <TextView
+            android:id="@+id/ms_enter_message_label"
+            android:layout_width="160dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="124dp"
+            android:gravity="center_vertical"
+            android:labelFor="@id/ms_message_gap"
+            android:text="@string/ms_enter_message_label"
+            android:textSize="@dimen/text_size_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.103"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ms_message_gap_label" />
+
+        <EditText
+            android:id="@+id/ms_enter_message"
+            android:layout_width="343dp"
+            android:layout_height="91dp"
+            android:autofillHints="Enter message"
+            android:background="@drawable/black_react"
+            android:gravity="start"
+            android:inputType="textMultiLine"
+            android:padding="@dimen/padding_1"
+            android:textIsSelectable="true"
+            android:textSize="@dimen/text_size_3"
+            android:scrollbarStyle="insideInset"
+            app:layout_constraintBottom_toTopOf="@+id/ms_current_message_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ms_enter_message_label"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/ms_current_message_number"
+            android:layout_width="268dp"
+            android:layout_height="19dp"
+            android:gravity="center"
+            android:labelFor="@id/ms_no_of_message"
+            android:text="@string/ms_current_no_of_message"
+            android:textSize="@dimen/text_size_3"
+            app:layout_anchorGravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ms_message_gap_label"
+            app:layout_constraintVertical_bias="0.536" />
+
+        <Button
+            android:id="@+id/ms_button_message"
+            android:layout_width="343dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/color10_light"
+            android:clickable="false"
+            android:text="@string/ms_default_message_text"
+            android:textSize="@dimen/text_size_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ms_current_message_number" />
+
+        <Button
+            android:id="@+id/ms_stop_message"
+            android:layout_width="343dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/color30_light"
+            android:text="@string/ms_stop_messaging"
+            android:textSize="@dimen/text_size_2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ms_button_message"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

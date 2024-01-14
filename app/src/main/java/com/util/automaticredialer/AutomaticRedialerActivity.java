@@ -31,33 +31,20 @@ import java.util.TimerTask;
 
 public class AutomaticRedialerActivity extends AppCompatActivity {
 
-    Timer timer = null;
-    Context baseContext = null;
-    String name = null;
-    String number = null;
-    TextView noOfCallsTextView = null;
-    Button stopCallingButton = null;
-    TextView currentNoOfCalls = null;
-    TextView callGapTextView = null;
+    private Timer timer = null;
+    private Context baseContext = null;
+    private String name = null;
+    private String number = null;
+    private TextView noOfCallsTextView = null;
+    private Button stopCallingButton = null;
+    private TextView currentNoOfCalls = null;
+    private TextView callGapTextView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        myInit();
 
-        ActivityAutomaticRedialerBinding binding = ActivityAutomaticRedialerBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-        baseContext = getBaseContext();
-
-        // Header
-        TextView headerTxt = findViewById(R.id.app_header);
-        headerTxt.setText(R.string.automatic_redialer);
-
-        // Main menu button
-        Button mainMenuBtn = findViewById(R.id.main_menu);
-        mainMenuBtn.setOnClickListener(v -> startActivity(new Intent(baseContext, MainActivity.class)));
-
-        noOfCallsTextView = findViewById(R.id.no_of_calls);
         noOfCallsTextView.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -76,7 +63,6 @@ public class AutomaticRedialerActivity extends AppCompatActivity {
             }
         });
 
-        callGapTextView = findViewById(R.id.call_gap);
         callGapTextView.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -95,14 +81,13 @@ public class AutomaticRedialerActivity extends AppCompatActivity {
             }
         });
 
-        currentNoOfCalls = findViewById(R.id.current_call_number);
         currentNoOfCalls.setVisibility(View.INVISIBLE);
 
-        Button selectContactButton = findViewById(R.id.select_contact);
-        Button callButton = findViewById(R.id.button_call);
+        Button selectContactButton = findViewById(R.id.ar_select_contact);
+        Button callButton = findViewById(R.id.ar_button_call);
         callButton.setText(getString(R.string.ar_default_call_text, ""));
         callButton.setClickable(false);
-        stopCallingButton = findViewById(R.id.stop_call);
+        stopCallingButton = findViewById(R.id.ar_stop_call);
         stopCallingButton.setClickable(false);
 
         // select contact click listener
@@ -131,11 +116,11 @@ public class AutomaticRedialerActivity extends AppCompatActivity {
                                 callButton.setText(getString(R.string.ar_default_call_text, name));
                                 callButton.setClickable(true);
                                 callButton.setBackgroundColor(MainActivity.COLOR10_DARK);
-                                Snackbar.make(findViewById(R.id.select_contact), "Contact selected: " + name, Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                                Snackbar.make(findViewById(R.id.ar_select_contact), "Contact selected: " + name, Snackbar.LENGTH_LONG).setAction("Action", null).show();
                             } else {
                                 callButton.setClickable(false);
                                 callButton.setBackgroundColor(MainActivity.COLOR10_LIGHT);
-                                Snackbar.make(findViewById(R.id.select_contact), "No contact is selected", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                                Snackbar.make(findViewById(R.id.ar_select_contact), "No contact is selected", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                             }
                             phoneCursor.close();
                         }
@@ -191,6 +176,25 @@ public class AutomaticRedialerActivity extends AppCompatActivity {
         });
     }
 
+    private void myInit() {
+        ActivityAutomaticRedialerBinding binding = ActivityAutomaticRedialerBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        baseContext = getBaseContext();
+
+        // Header
+        TextView headerTxt = findViewById(R.id.app_header);
+        headerTxt.setText(R.string.automatic_redialer);
+
+        // Main menu button
+        Button mainMenuBtn = findViewById(R.id.main_menu);
+        mainMenuBtn.setOnClickListener(v -> startActivity(new Intent(baseContext, MainActivity.class)));
+
+        noOfCallsTextView = findViewById(R.id.ar_no_of_calls);
+        callGapTextView = findViewById(R.id.ar_call_gap);
+        currentNoOfCalls = findViewById(R.id.ar_current_call_number);
+    }
+
     private void performRepeatedCalls() {
         if (!noOfCallsTextView.getText().toString().isEmpty() && number != null && !number.isEmpty()) {
             stopCallingButton.setBackgroundColor(MainActivity.COLOR30_DARK);
@@ -203,7 +207,7 @@ public class AutomaticRedialerActivity extends AppCompatActivity {
             currentNoOfCalls.setVisibility(View.VISIBLE);
             timer = new Timer();
             timer.schedule(new AutomaticRedialerActivity.CallTask(), Constants.AUTOMATIC_REDIALER_INITIAL_DELAY, Integer.parseInt(callGapTextView.getText().toString()) * 1000L);
-            Snackbar.make(findViewById(R.id.button_call), "Calling to " + name + " " + noOfCallsTextView.getText().toString() + " times after every " + callGapTextView.getText().toString() + " sec", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            Snackbar.make(findViewById(R.id.ar_button_call), "Calling to " + name + " " + noOfCallsTextView.getText().toString() + " times after every " + callGapTextView.getText().toString() + " sec", Snackbar.LENGTH_LONG).setAction("Action", null).show();
         }
     }
 
@@ -223,7 +227,7 @@ public class AutomaticRedialerActivity extends AppCompatActivity {
                 stopCallingButton.setClickable(false);
                 stopCallingButton.setBackgroundColor(MainActivity.COLOR30_LIGHT);
                 currentNoOfCalls.setVisibility(View.INVISIBLE);
-                Snackbar.make(findViewById(R.id.stop_call), "Calling stopped to " + name, Snackbar.LENGTH_LONG).show();
+                Snackbar.make(findViewById(R.id.ar_stop_call), "Calling stopped to " + name, Snackbar.LENGTH_LONG).show();
                 timer.cancel();
             }
         }

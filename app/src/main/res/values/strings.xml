@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">UTILITY APP</string>
+    <string name="app_header_default_name">Default</string>
+    <string name="main_menu_button">Main Menu</string>
+
     <string name="automatic_redialer">Automatic Redialer</string>
     <string name="ar_stop_calling">Stop Calling</string>
     <string name="ar_default_call_text">Call %1s</string>
@@ -8,9 +11,22 @@
     <string name="ar_number_of_calls">No of Calls</string>
     <string name="ar_default_no_of_calls">10</string>
     <string name="ar_select_contact">Select Contact</string>
-    <string name="main_menu_button">Main Menu</string>
-    <string name="app_header_default_name">Default</string>
     <string name="ar_default_call_gap">50</string>
     <string name="ar_max_call_gap">180</string>
     <string name="ar_call_gap_label">Call Gap (sec)</string>
+
+    <string name="message_sender">Message Sender</string>
+    <string name="ms_select_contact">Select Contact</string>
+    <string name="ms_send_message_text">Send to %1s</string>
+    <string name="ms_default_no_of_message">20</string>
+    <string name="ms_max_no_of_message">1000</string>
+    <string name="ms_number_of_message">No of Messages</string>
+    <string name="ms_default_message_gap">5</string>
+    <string name="ms_max_message_gap">300</string>
+    <string name="ms_message_gap_label">Message Gap (sec)</string>
+    <string name="ms_current_no_of_message">Current No of Message: %1$d</string>
+    <string name="ms_default_message_text">Message %1s</string>
+    <string name="ms_stop_messaging">Stop Messaging</string>
+    <string name="ms_enter_message_label">Enter Message</string>
+    <string name="ms_info">Strings for replacement:\n1. <b>"#random_digitX#</b>: X digit random number \n2. <b>#random_stringX#</b>: X character random string</string>
 </resources>
