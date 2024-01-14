@@ -179,17 +179,14 @@ public class AutomaticRedialerActivity extends AppCompatActivity {
             }
         });
 
-        stopCallingButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (timer != null) {
-                    System.out.println("Cancel calling");
-                    currentNoOfCalls.setVisibility(View.INVISIBLE);
-                    stopCallingButton.setClickable(false);
-                    stopCallingButton.setBackgroundColor(MainActivity.COLOR30_LIGHT);
-                    timer.cancel();
-                    Snackbar.make(v, "Calling stopped to " + name, Snackbar.LENGTH_LONG).show();
-                }
+        stopCallingButton.setOnClickListener(v -> {
+            if (timer != null) {
+                System.out.println("Cancel calling");
+                currentNoOfCalls.setVisibility(View.INVISIBLE);
+                stopCallingButton.setClickable(false);
+                stopCallingButton.setBackgroundColor(MainActivity.COLOR30_LIGHT);
+                timer.cancel();
+                Snackbar.make(v, "Calling stopped to " + name, Snackbar.LENGTH_LONG).show();
             }
         });
     }
@@ -200,7 +197,7 @@ public class AutomaticRedialerActivity extends AppCompatActivity {
             stopCallingButton.setClickable(true);
             if (timer != null)
                 timer.cancel();
-            if(callGapTextView.getText().toString().isEmpty())
+            if (callGapTextView.getText().toString().isEmpty())
                 callGapTextView.setText(R.string.ar_default_call_gap);
             currentNoOfCalls.setText(getString(R.string.ar_current_no_of_call, 0));
             currentNoOfCalls.setVisibility(View.VISIBLE);
@@ -212,6 +209,7 @@ public class AutomaticRedialerActivity extends AppCompatActivity {
 
     class CallTask extends TimerTask {
         int currentReverseNoOfCall = Integer.parseInt(noOfCallsTextView.getText().toString());
+
         public void run() {
             if (currentReverseNoOfCall > 0) {
                 currentNoOfCalls.setText(getString(R.string.ar_current_no_of_call, (Integer.parseInt(noOfCallsTextView.getText().toString()) - currentReverseNoOfCall + 1)));
