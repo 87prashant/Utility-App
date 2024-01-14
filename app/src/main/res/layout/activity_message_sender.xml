@@ -122,6 +122,7 @@
             android:textColor="@color/color30_light"
             android:textSize="@dimen/text_size_3"
             android:textStyle="italic"
+            android:textIsSelectable="true"
             app:layout_constraintBottom_toTopOf="@+id/ms_enter_message_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -146,23 +147,22 @@
             android:layout_width="343dp"
             android:layout_height="91dp"
             android:autofillHints="Enter message"
-            android:background="@drawable/black_react"
+            android:background="@drawable/black_rect"
             android:gravity="start"
             android:inputType="textMultiLine"
+            android:maxLength="600"
             android:padding="@dimen/padding_1"
             android:textIsSelectable="true"
             android:textSize="@dimen/text_size_3"
-            android:scrollbarStyle="insideInset"
-            app:layout_constraintBottom_toTopOf="@+id/ms_current_message_number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ms_enter_message_label"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/ms_enter_message_label" />
 
         <TextView
             android:id="@+id/ms_current_message_number"
             android:layout_width="268dp"
             android:layout_height="19dp"
+            android:layout_marginBottom="192dp"
             android:gravity="center"
             android:labelFor="@id/ms_no_of_message"
             android:text="@string/ms_current_no_of_message"
@@ -172,8 +172,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ms_message_gap_label"
-            app:layout_constraintVertical_bias="0.536" />
+            app:layout_constraintTop_toBottomOf="@+id/ms_enter_message"
+            app:layout_constraintVertical_bias="0.25" />
 
         <Button
             android:id="@+id/ms_button_message"

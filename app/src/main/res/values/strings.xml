@@ -28,5 +28,8 @@
     <string name="ms_default_message_text">Message %1s</string>
     <string name="ms_stop_messaging">Stop Messaging</string>
     <string name="ms_enter_message_label">Enter Message</string>
-    <string name="ms_info">Strings for replacement:\n1. <b>"#random_digitX#</b>: X digit random number \n2. <b>#random_stringX#</b>: X character random string</string>
+
+    <string name="ms_random_digit">#random_digit</string>
+    <string name="ms_random_string">#random_string</string>
+    <string name="ms_info">Strings for replacement:\n1. <b>#random_digitX#</b>: X digit random number \n2. <b>#random_stringX#</b>: X character random string</string>
 </resources>
