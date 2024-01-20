@@ -94,8 +94,8 @@
             android:textSize="@dimen/text_size_2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.722"
-            app:layout_constraintStart_toStartOf="@+id/ms_button_message"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/ms_no_of_message"
             app:layout_constraintTop_toTopOf="@+id/ms_message_gap_label"
             app:layout_constraintVertical_bias="0.0" />
 
@@ -138,8 +138,8 @@
             android:text="@string/ms_enter_message_label"
             android:textSize="@dimen/text_size_2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.103"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/ms_enter_message"
             app:layout_constraintTop_toBottomOf="@+id/ms_message_gap_label" />
 
         <EditText

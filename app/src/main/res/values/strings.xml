@@ -6,7 +6,7 @@
     <string name="automatic_redialer">Automatic Redialer</string>
     <string name="ar_stop_calling">Stop Calling</string>
     <string name="ar_default_call_text">Call %1s</string>
-    <string name="ar_max_no_of_calls">100</string>
+    <string name="ar_max_no_of_calls">500</string>
     <string name="ar_current_no_of_call">Current Number of Call: %1$d</string>
     <string name="ar_number_of_calls">No of Calls</string>
     <string name="ar_default_no_of_calls">10</string>
